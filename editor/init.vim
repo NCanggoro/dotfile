@@ -19,8 +19,11 @@ Plug 'justinmk/vim-sneak'
 Plug 'itchyny/lightline.vim'
 Plug 'andymass/vim-matchup'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'morhetz/gruvbox'
+
 
 " Completion plugins
+Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
@@ -47,6 +50,8 @@ if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
 endif
 
 " Colors
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='medium'
 set background=dark
 hi Normal ctermbg=NONE
 " Get syntax
@@ -103,12 +108,18 @@ set splitbelow
 "==========================
 
 set guioptions-=T " Remove toolbar
+set guioptions-=m " Remove Menubar
 set ruler
-set ttyfast
 set colorcolumn=120
 set synmaxcol=500
 set number
 set relativenumber
+set laststatus=2
+set lazyredraw
+set showcmd
+set nolist
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+
 hi CursorLineNr guifg=DarkGrey			" Cursor Number Font Color
 hi LineNr guifg=DarkGrey			" Other Numbers Font Color
 hi ColorColumn ctermbg=235 guibg=grey28		" Column Color
@@ -119,6 +130,7 @@ set nolist
 " # Keyboard shortcut
 " ===========================================
 
-let mapleader = ","
-nmap <leader>ne :NERDTree<cr>
+" let mapleader = ","
+" nmap <leader>ne :NERDTreeToggle<cr>
+nmap <silent> <C-b> :NERDTreeToggle<CR>
 
