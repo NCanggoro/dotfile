@@ -1,0 +1,1 @@
+/home/nc/.bash_aliases
